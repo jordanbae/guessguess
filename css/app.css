@@ -7,16 +7,6 @@ h1 {
     color: black;
 }
 
-.content {
-    width: 1000px;
-    height: 600px;
-    background-size: cover;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .container {
     height: 70vh;
     display: flex;
@@ -24,6 +14,24 @@ h1 {
     align-items: center;
     flex-direction: column;
 } 
+
+
+.content {
+    width: 1600px;
+    height: 800px;
+    overflow: hidden;
+    background-size: cover;
+    background-color: aquamarine;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.movie-name {
+    font-size: 150px;
+    text-align: center;
+}
 
 .btn-game {
     width: 500px;
