@@ -2,7 +2,12 @@ console.log('connected');
 import movies from '../movies.json' assert {type: 'json'};
 
 
-
+// TODO
+//
+// RE-ARRANGE FILES - REMOVING CATEGORY PAGE / COPY CONTENT APP.HTML TO INDEX.HTML
+// LOCAL STORAGE
+// MODAL
+//
 
 
 
@@ -14,7 +19,28 @@ let h1Content = document.querySelector('h1');
 
 let moviesList = [];
 
+const startingTime = 1;
+let time = startingTime * 10;
+
+const countdownEl = document.querySelector('#countdown');
+console.log(countdownEl)
+
 let scores = 0;
+
+
+const updateCountdown = () => {
+    const minutes = Math.floor(time/60);
+    let seconds = time % 60;
+
+    countdownEl.innerHTML = `${seconds}`
+    time--;
+
+    if(time === 0){
+        clearInterval(timeInterval);
+        console.log('cleared');
+    }
+}
+let timeInterval = setInterval(updateCountdown, 1000);
 
 const addTitleToMoviesList = () => {
     movies.forEach(title => {
