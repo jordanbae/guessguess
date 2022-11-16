@@ -1,5 +1,5 @@
 console.log('connected');
-import movies from '../movies.json' assert {type: 'json'};
+import movies from '../assets/movies.json' assert {type: 'json'};
 
 
 // TODO
@@ -21,8 +21,8 @@ let tempmodalbutton1 = document.querySelector('#tempbutton1');
 let tempmodalbutton2 = document.querySelector('#tempbutton2');
 
 
-tempmodalbutton1.addEventListener('click', openEndModal);
-tempmodalbutton2.addEventListener('click', closeEndModal);
+// tempmodalbutton1.addEventListener('click', openEndModal);
+// tempmodalbutton2.addEventListener('click', closeEndModal);
 
 
 // modalCloseEl.addEventListener('click', () => {

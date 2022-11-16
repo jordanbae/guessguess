@@ -15,11 +15,6 @@
         "id": "tt0071562"
     },
     {
-        "title": "Pulp Fiction",
-        "rank": "4",
-        "id": "tt0110912"
-    },
-    {
         "title": "The Good, the Bad and the Ugly",
         "rank": "5",
         "id": "tt0060196"
@@ -40,22 +35,17 @@
         "id": "tt0108052"
     },
     {
-        "title": "The Lord of the Rings: The Return of the King",
-        "rank": "9",
-        "id": "tt0167260"
-    },
-    {
         "title": "Fight Club",
         "rank": "10",
         "id": "tt0137523"
     },
     {
-        "title": "Star Wars: Episode V - The Empire Strikes Back",
+        "title": "Star Wars: Episode V",
         "rank": "11",
         "id": "tt0080684"
     },
     {
-        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "title": "The Lord of the Rings",
         "rank": "12",
         "id": "tt0120737"
     },
@@ -94,11 +84,7 @@
         "rank": "19",
         "id": "tt0133093"
     },
-    {
-        "title": "The Lord of the Rings: The Two Towers",
-        "rank": "20",
-        "id": "tt0167261"
-    },
+
     {
         "title": "City of God",
         "rank": "21",
@@ -150,16 +136,6 @@
         "id": "tt0054215"
     },
     {
-        "title": "Léon: The Professional",
-        "rank": "31",
-        "id": "tt0110413"
-    },
-    {
-        "title": "Sunset Blvd.",
-        "rank": "32",
-        "id": "tt0043014"
-    },
-    {
         "title": "American History X",
         "rank": "33",
         "id": "tt0120586"
@@ -170,7 +146,7 @@
         "id": "tt0078788"
     },
     {
-        "title": "Terminator 2: Judgment Day",
+        "title": "Terminator 2",
         "rank": "35",
         "id": "tt0103064"
     },
@@ -188,11 +164,6 @@
         "title": "City Lights",
         "rank": "38",
         "id": "tt0021749"
-    },
-    {
-        "title": "Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb",
-        "rank": "39",
-        "id": "tt0057012"
     },
     {
         "title": "Alien",
@@ -370,7 +341,7 @@
         "id": "tt0095765"
     },
     {
-        "title": "Star Wars: Episode VI - Return of the Jedi",
+        "title": "Star Wars: Episode VI",
         "rank": "75",
         "id": "tt0086190"
     },
@@ -393,11 +364,6 @@
         "title": "Requiem for a Dream",
         "rank": "79",
         "id": "tt0180093"
-    },
-    {
-        "title": "Eternal Sunshine of the Spotless Mind",
-        "rank": "80",
-        "id": "tt0338013"
     },
     {
         "title": "Full Metal Jacket",
@@ -495,7 +461,7 @@
         "id": "tt0095327"
     },
     {
-        "title": "Indiana Jones and the Last Crusade",
+        "title": "Indiana Jones",
         "rank": "100",
         "id": "tt0097576"
     }
