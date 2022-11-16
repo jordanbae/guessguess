@@ -36,7 +36,9 @@ let scores = 0;
 
 //Movies
 let moviesList = [];
-let playerList = [];
+let playerList = JSON.parse(localStorage.getItem('playerInfo') || '[]');
+
+console.log(playerList);
 // Modal Trigger functions;
 let currentDate = new Date();
 var datetime = "Date: " + currentDate.getDate() + "/"
@@ -47,17 +49,6 @@ var datetime = "Date: " + currentDate.getDate() + "/"
                 + currentDate.getSeconds();
 
 
-
-const loadPlayerFromLocalStorage = () => {
-    let LoadplayerInfo = JSON.parse(localStorage.getItem(playerList));
-
-    if (LoadplayerInfo) {
-        datetime = LoadplayerInfo.date;
-        modalInput.value = LoadplayerInfo.name;
-        scores = LoadplayerInfo.points;
-    }
-    console.log(LoadplayerInfo);
-}
 
 const savePlayertoLocalStorage = () => {
     let date = datetime;
@@ -71,6 +62,7 @@ const savePlayertoLocalStorage = () => {
     }
     playerList.push(playerInfo);
     localStorage.setItem("playerInfo", JSON.stringify(playerList));
+    console.log(playerList)
 }
 
 
@@ -88,10 +80,24 @@ const closeEndModal = () => {
     modalContainer.style.display = 'none'
 
     savePlayertoLocalStorage();
+    openIntroModal();
+    time = startingTime * 10;
 }
-
+const openIntroModal = () => {
+    introModalContainer.style.display = 'flex';
+}
 const closeIntroModal = () => {
     introModalContainer.style.display = 'none';
+    const updateCountdown = () => {
+        let seconds = time % 60;
+        countdownEl.innerHTML = `${seconds}`
+        time--;
+        if(time === -1){
+            clearInterval(timeInterval);
+            openEndModal();
+        }
+}
+    let timeInterval = setInterval(updateCountdown, 1000);
 }
 
 //Timer
@@ -100,19 +106,6 @@ let time = startingTime * 10;
 const countdownEl = document.querySelector('#countdown');
 console.log(countdownEl)
 
-//Timer
-const updateCountdown = () => {
-    let seconds = time % 60;
-
-    countdownEl.innerHTML = `${seconds}`
-    time--;
-
-    if(time === -1){
-        clearInterval(timeInterval);
-        openEndModal();
-    }
-}
-let timeInterval = setInterval(updateCountdown, 1000);
 
 //Add movies to array
 const addTitleToMoviesList = () => {
@@ -142,8 +135,11 @@ const main = () => {
     addTitleToMoviesList();
     shuffleArray(moviesList)
     movieNameHtml.innerHTML = moviesList[0];
+
 }
 main();
+
+
 
 
 
