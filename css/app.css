@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
         overflow: hidden;
         height: 100%;
@@ -7,6 +13,7 @@ h1 {
     color: black;
 }
 
+/* GAME CONTENT */
 .container {
     height: 70vh;
     display: flex;
@@ -14,7 +21,6 @@ h1 {
     align-items: center;
     flex-direction: column;
 } 
-
 
 .content {
     width: 1600px;
@@ -34,13 +40,98 @@ h1 {
 }
 
 .btn-game {
-    width: 500px;
+    width:  1500px;
     background-color: aquamarine;
     display: flex;
     justify-content: space-between;
 }
 
 .btn {
-    width: 130px;
-    height: 50px;
+    width: 500px;
+    height: 100px;
+}
+
+/* TOP BAR */
+.topbar {
+    background-color: brown;
+    margin-bottom: 2%;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#score {
+    height: 150px;
+    width: 300px;
+    background-color: blueviolet;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#countdown {
+    background-color: blueviolet;
+    height: 150px;
+    width: 300px;
+    font-size: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* MODAL */
+#modal_container{
+	background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.modal{
+    width: 800px;
+    height: 350px;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 20px;
+    box-shadow: 5px 5px rgba(0,0,0,0.4);
+}
+
+#modal-title {
+    font-size: 100px;
+    margin: 0;
+    /* background-color: beige; */
+    /* margin-top: 20px; */
+}
+
+
+#modal-input {
+    height: 55px;
+    width: 500px;
+    margin-top: 0;
+    font-size: 30px;
+    border-radius: 20px;
+    /* margin-bottom: 20px; */
+}
+
+#btn-closemodal {
+    background-color: white;
+    font-size: 40px;
+    margin-top: 5%;
+    height: 70px;
+    width: 300px;
+    border-radius: 20px;
+    /* margin-bottom: 5px; */
 }
