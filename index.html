@@ -10,21 +10,28 @@
 </head>
 <body>
     <div class="topbar">
-        <h1 id="score">Score:</h1>
+        <h1 id="score">Points: </h1>
         <h1 id="game-title">GUESSGUESS</h1>
         <p id="countdown"> THIS IS A TIME</p>
     </div>
     <button id="tempbutton1">openmodal</button>
     <button id='tempbutton2'>closemodal</button>
     <div class="container">
-        <!-- <div class="modal-container" id="modal_container">
-            <div class="modal">
-                <p id="modal-title">20 Points</p>
-                <input id="modal-input" type="text" placeholder=" Enter your name . . .">
-                <button id="btn-closemodal">CLOSE ME</button>
-            </div>
-        </div> -->
+        <div class="intro-modal-container" id="intro_modal_container">
+            <div class="intro-modal">
+                <h1 id="intro-modal-title">HOW TO PLAY?</h1>
+                <p id="intro-modal-text">You got 45 seconds to guess as much movies as you can!! Click 'correct' if your answer is right! click 'pass' to skip to new words. Make sure to write down your name after playing to collect your scores!</p>
+                <p id="intro-btn-closemodal">START</p>
 
+            </div>
+        </div>
+        <div class="modal-container" id="modal_container">
+            <div class="modal">
+                <p id="modal-title">Points</p>
+                <input id="modal-input" type="text" placeholder=" Enter your name . . .">
+                <button id="btn-closemodal">SUBMIT</button>
+            </div>
+        </div>
         <div class="content">
             <p class="movie-name"></p>
         </div>
