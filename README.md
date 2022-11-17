@@ -31,6 +31,7 @@
 - [User Stories](#user-story)
 - [MVP Goals](#mvp-goals)
 - [Stretch Goals](#long-goals)
+- [Validation](#validation)
 
 
 ## 📌 Project Description <a name = "desc"></a>
