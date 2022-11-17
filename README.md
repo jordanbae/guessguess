@@ -72,5 +72,11 @@ Loops and Array are the main heroes that make this game logic working.
 - [ ] Images
 - [ ] API Calls
 
+## ✅ Validation <a name="validation"></a>
+- [x] HTML
+- [x] CSS
+- [x] JS
+
+
 
 
