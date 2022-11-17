@@ -37,7 +37,7 @@
 Guess the movies name from the the given hint.
 - **Minimum players required** : 2
   > There will be 2 groups of players; the guesser and the people who give hints.
-  >>Gameplay: The game will randomly show a movie title. The guesser will not be able to see the text, and have the guess what the movie is from the hints given. Users have 45 seconds to guess as much as they can, users are allowed to skip images. The hints are not allow to include the answer of the movie name. For instance, if the movie name is 'Terminator', the hint cant include the word 'Terminator'.
+  >>Gameplay: The game will randomly show a movie title. The guesser will not be able to see the text, and have the guess what the movie is from the hints given. Users have 45 seconds to guess as much as they can, users are allowed to skip words. The hints are not allow to include the answer of the movie name. For instance, if the movie name is 'Terminator', the hint cant include the word 'Terminator'.
 
 ## ⛓️ Wireframes <a name = "Wireframes"></a>
 ![wireframe](https://user-images.githubusercontent.com/73390197/202452021-a0a69758-2ddb-4f85-b5ae-7dfbb11c8066.png)
@@ -52,9 +52,8 @@ Loops and Array are the main heroes that make this game logic working.
 ![icons8-netlify-a-cloud-computing-company-that-offers-hosting-and-serverless-backend-services-for-static-websites -48](https://user-images.githubusercontent.com/73390197/202454583-75481cf0-f4ea-4f76-8ce4-387e0b5ee9a3.png)
 
 ## 👫 User Stories <a name = "user-story"></a>
-As a user I want to:
-- Be able to claim the correct answer, and move forward to the next image.
-- Be able to skip the image.
+- Be able to claim the correct answer, and move forward to the next word.
+- Be able to skip the word.
 - Collect and save scores, to keep track of teams score.
 - Keep track on time with countdown timer.
 - Be able to restart the game.
