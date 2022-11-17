@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Pacifico&family=Poppins&display=swap');
 
 * {
     font-family: 'Poppins', sans-serif;
@@ -11,6 +14,11 @@ body {
 
 h1 {
     color: black;
+}
+
+#game-title {
+    font-family: 'Pocifico', cursive;
+    font-size: 120px;
 }
 
 /* GAME CONTENT */
@@ -90,7 +98,7 @@ h1 {
 	width: 100%;
 	z-index: 1;
 	overflow: auto;
-    display: flex;
+    display: flex; /* change to none for normal game functional */
     justify-content: center;
     align-items: center;
 
@@ -191,3 +199,76 @@ h1 {
 
 
 
+/* SCOREBOARD MODAL */
+#score_modal {
+    background-color: rgba(0,0,0,0.4);
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 1;
+	overflow: auto;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+}
+
+.score-table{
+    width: 1200px;
+    height: 500px;
+    display: flex;
+    /* justify-content: center; */
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    /* border-radius: 20px; */
+    box-shadow: 5px 5px rgba(0,0,0,0.4);
+}
+
+table {
+    width: 1200px;
+	border-collapse: collapse;
+	overflow-y: hidden;
+    overflow-x: hidden;
+	/* box-shadow: 0 0 20px rgba(0,0,0,0.1);     */
+    display: block;
+    /* flex-direction: column;
+    justify-content: space-around;
+    align-items: center; */
+}
+
+thead {
+    position: fixed;
+    width: 1200px;
+    height: 50px;
+    position: relative;
+    background-color: yellowgreen;
+    display: flex;
+    align-items: center;
+}
+
+tbody {
+    width: 1200px;
+
+    height: 550px;
+    border:none;    
+}
+
+tr {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1200px;
+    margin: 5px;
+    overflow: hidden;
+
+}
+
+
+#btn-scoreboard {
+    margin-bottom: 2%;
+    width: 150px;
+    height: 50px;
+}

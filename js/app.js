@@ -21,10 +21,15 @@ let modalContainer = document.querySelector('#modal_container');
 let modalPoints = document.querySelector('#modal-title');
 let modalInput = document.querySelector('#modal-input');
 
+let scoreModalContainer = document.querySelector('#score_modal');
+let scoreModalButton = document.querySelector('#btn-scoreboard');
+let scoreTable = document.querySelector('.tlist');
 
 
-let tempmodalbutton1 = document.querySelector('#tempbutton1');
-let tempmodalbutton2 = document.querySelector('#btn-closemodal');
+// console.log("scoreTable.childNodes;", scoreTable)
+
+
+
 
 //Score
 let scores = 0;
@@ -37,8 +42,13 @@ let scores = 0;
 //Movies
 let moviesList = [];
 let playerList = JSON.parse(localStorage.getItem('playerInfo') || '[]');
-
+let oldPlayer = playerList;
 console.log(playerList);
+oldPlayer.pop();
+let newoldPlayer = oldPlayer
+console.log(oldPlayer);
+
+
 // Modal Trigger functions;
 let currentDate = new Date();
 var datetime = "Date: " + currentDate.getDate() + "/"
@@ -49,6 +59,47 @@ var datetime = "Date: " + currentDate.getDate() + "/"
                 + currentDate.getSeconds();
 
 
+const clearTable = (parent) => {
+    while (parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
+const savePlayerToScoreboard = () => {
+    
+    clearTable(scoreTable);
+
+
+    playerList.forEach( (player, i) => {
+        const trElHTML = document.createElement("tr")
+        const dateElHTML = document.createElement("td")
+        const nameElHTML = document.createElement("td")
+        const pointsElHTML = document.createElement("td")
+        // let latestPlayer = playerList[playerList.length - 1];
+        trElHTML.append(dateElHTML);
+        trElHTML.append(nameElHTML);
+        trElHTML.append(pointsElHTML);
+        dateElHTML.append(`${player.date}`)
+        nameElHTML.append(`${player.name}`)
+        pointsElHTML.append(`${player.points}`)
+        scoreTable.append(trElHTML);
+    })
+
+    // newoldPlayer.forEach((p) => {
+    //     const trElHTML = document.createElement("tr")
+    //     const dateElHTML = document.createElement("td")
+    //     const nameElHTML = document.createElement("td")
+    //     const pointsElHTML = document.createElement("td")
+    //     trElHTML.append(dateElHTML);
+    //     trElHTML.append(nameElHTML);
+    //     trElHTML.append(pointsElHTML);
+    //     dateElHTML.append(`${p.date}`)
+    //     nameElHTML.append(`${p.name}`)
+    //     pointsElHTML.append(`${p.points}`)
+    //     scoreTable.append(trElHTML);
+    // })
+
+}
 
 const savePlayertoLocalStorage = () => {
     let date = datetime;
@@ -62,9 +113,22 @@ const savePlayertoLocalStorage = () => {
     }
     playerList.push(playerInfo);
     localStorage.setItem("playerInfo", JSON.stringify(playerList));
-    console.log(playerList)
+    savePlayerToScoreboard();
 }
 
+
+
+const closeScoreboardModalAndRestartGame = () => {
+    scoreModalContainer.style.display = 'none';
+    time = startingTime * 3;
+    openIntroModal();
+
+}
+
+const openScoreboardModal = () => {
+    console.log('open scoreboard')
+    scoreModalContainer.style.display = 'flex';
+}
 
 
 const openEndModal = () => {
@@ -80,8 +144,7 @@ const closeEndModal = () => {
     modalContainer.style.display = 'none'
 
     savePlayertoLocalStorage();
-    openIntroModal();
-    time = startingTime * 10;
+    openScoreboardModal();
 }
 const openIntroModal = () => {
     introModalContainer.style.display = 'flex';
@@ -102,7 +165,7 @@ const closeIntroModal = () => {
 
 //Timer
 const startingTime = 1;
-let time = startingTime * 10;
+let time = startingTime * 1;
 const countdownEl = document.querySelector('#countdown');
 console.log(countdownEl)
 
@@ -162,6 +225,9 @@ correctButton.addEventListener('click', () => {
 
 introModalBtn.addEventListener('click', closeIntroModal);
 
-tempmodalbutton1.addEventListener('click', openEndModal);
-tempmodalbutton2.addEventListener('click', closeEndModal);
+// tempmodalbutton1.addEventListener('click', openEndModal);
+modalbtnCloseEl.addEventListener('click', closeEndModal);
+
+
+scoreModalButton.addEventListener('click', closeScoreboardModalAndRestartGame);
 
