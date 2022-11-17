@@ -2,7 +2,7 @@
   <a href="" rel="noopener">
 <h3 align="center">GuessGuess</h3>
   
- <img src="https://user-images.githubusercontent.com/73390197/202446195-0fde7ac2-f4a6-46ae-9d42-573d57e87e7f.png" alt="Project logo"></a>
+ <img src="https://user-images.githubusercontent.com/73390197/202492442-8e33dc1f-2a48-4221-a0b5-1afbdecc4e0b.png" alt="Project logo"></a>
 </p>
 
 ---
