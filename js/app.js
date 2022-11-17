@@ -1,12 +1,4 @@
-console.log('connected');
 import movies from '../assets/movies.json' assert {type: 'json'};
-
-
-// TODO
-//
-// LOCAL STORAGE
-// MODAL
-//
 
 let passButton = document.querySelector('.btn-pass');
 let correctButton = document.querySelector('.btn-correct');
@@ -26,30 +18,20 @@ let scoreModalButton = document.querySelector('#btn-scoreboard');
 let scoreTable = document.querySelector('.tlist');
 
 
-// console.log("scoreTable.childNodes;", scoreTable)
-
-
-
-
 //Score
 let scores = 0;
-
-
-// modalCloseEl.addEventListener('click', () => {
-//     console.log('clicked');
-// })
-
 //Movies
 let moviesList = [];
 let playerList = JSON.parse(localStorage.getItem('playerInfo') || '[]');
-let oldPlayer = playerList;
-console.log(playerList);
-oldPlayer.pop();
-let newoldPlayer = oldPlayer
-console.log(oldPlayer);
+//Time
+const startingTime = 45;
+let time = startingTime * 1;
+const countdownEl = document.querySelector('#countdown');
 
 
-// Modal Trigger functions;
+
+///LocalStorage and Scoreboard///
+//Get Date
 let currentDate = new Date();
 var datetime = "Date: " + currentDate.getDate() + "/"
                 + (currentDate.getMonth()+1)  + "/" 
@@ -58,24 +40,22 @@ var datetime = "Date: " + currentDate.getDate() + "/"
                 + currentDate.getMinutes() + ":" 
                 + currentDate.getSeconds();
 
-
+//Clear table to get updated table, without this the table will be duplicated
 const clearTable = (parent) => {
     while (parent.firstChild) {
         parent.removeChild(parent.firstChild);
     }
 }
 
+//Adding Old player list from localstorage and new player that have been added to Localstorage to Table
 const savePlayerToScoreboard = () => {
-    
     clearTable(scoreTable);
-
-
-    playerList.forEach( (player, i) => {
+    playerList.reverse();
+    playerList.forEach( (player) => {
         const trElHTML = document.createElement("tr")
         const dateElHTML = document.createElement("td")
         const nameElHTML = document.createElement("td")
         const pointsElHTML = document.createElement("td")
-        // let latestPlayer = playerList[playerList.length - 1];
         trElHTML.append(dateElHTML);
         trElHTML.append(nameElHTML);
         trElHTML.append(pointsElHTML);
@@ -84,28 +64,13 @@ const savePlayerToScoreboard = () => {
         pointsElHTML.append(`${player.points}`)
         scoreTable.append(trElHTML);
     })
-
-    // newoldPlayer.forEach((p) => {
-    //     const trElHTML = document.createElement("tr")
-    //     const dateElHTML = document.createElement("td")
-    //     const nameElHTML = document.createElement("td")
-    //     const pointsElHTML = document.createElement("td")
-    //     trElHTML.append(dateElHTML);
-    //     trElHTML.append(nameElHTML);
-    //     trElHTML.append(pointsElHTML);
-    //     dateElHTML.append(`${p.date}`)
-    //     nameElHTML.append(`${p.name}`)
-    //     pointsElHTML.append(`${p.points}`)
-    //     scoreTable.append(trElHTML);
-    // })
-
 }
 
+//Saving player objects to localstorage, using stringnify to make it readable.
 const savePlayertoLocalStorage = () => {
     let date = datetime;
     let name = modalInput.value;
     let points = scores;
-
     let playerInfo = {
         date: date,
         name: name,
@@ -117,43 +82,50 @@ const savePlayertoLocalStorage = () => {
 }
 
 
-
+///SCOREBOARD - MODAL///
+//After press 'Restart' this function will close the scoreboard, reset the time and scores, shuffle the movie list, and open the 'HOW TO PLAY' modal
 const closeScoreboardModalAndRestartGame = () => {
     scoreModalContainer.style.display = 'none';
     time = startingTime * 1;
+    scores = 0;
+    h1Content.innerText = `${'🪙 Points: ' + scores}`
+    movieNameHtml.innerText = '';
+    shuffleArray(moviesList)
     openIntroModal();
-
 }
-
 const openScoreboardModal = () => {
-    console.log('open scoreboard')
     scoreModalContainer.style.display = 'flex';
 }
 
-
+///SCORE ANNOUNCE - MODAL///
 const openEndModal = () => {
-    console.log('inopen')
     modalContainer.style.display ='flex';
-    modalPoints.innerText = `${scores + ' Points'}`
-    // console.log("openEndModal - modalContainer.style.dislay", modalContainer.style.display)
-
+    if(scores <= 5) {
+        modalPoints.innerText = `${'🥹Just ' + scores + '? For real?'}`
+    } else {
+        modalPoints.innerText = `${'👏You got ' + scores + ' Points'}`
+    }
 }
-
+//After closing the score announce modal, the input will be send to local storage with 'savePlayertoLocalStorage()' function and then openScoreboardModal.
 const closeEndModal = () => {
-    console.log('inclose');
     modalContainer.style.display = 'none'
-
     savePlayertoLocalStorage();
     openScoreboardModal();
 }
+
+
+///HOW TO PLAY - MODAL///
 const openIntroModal = () => {
     introModalContainer.style.display = 'flex';
 }
+
+// After close the how to play modal, the first element of the shuffled array will be put in the innerhtml. Then the timer start, the update countdown function will check if the time reaches 0 then the cuurent game session ends, and open ScoreAnnounceModal
 const closeIntroModal = () => {
     introModalContainer.style.display = 'none';
+    movieNameHtml.innerHTML = moviesList[0];
     const updateCountdown = () => {
-        let seconds = time * 60; // change multiply to modulus
-        countdownEl.innerHTML = `${seconds}`
+        let seconds = time % 60; // change multiply to modulus
+        countdownEl.innerHTML = `⏳ ${seconds}`
         time--;
         if(time === -1){
             clearInterval(timeInterval);
@@ -163,43 +135,27 @@ const closeIntroModal = () => {
     let timeInterval = setInterval(updateCountdown, 1000);
 }
 
-//Timer
-const startingTime = 4500;
-let time = startingTime * 1;
-const countdownEl = document.querySelector('#countdown');
-console.log(countdownEl)
+///Shuffle array credit: https://www.folkstalk.com/2022/07/javascript-fisher-yates-shuffle-mdn-with-code-examples.html
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    let j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
 
-
-//Add movies to array
+///Add movies list objects obtained from JSON to array
 const addTitleToMoviesList = () => {
     movies.forEach(title => {
         moviesList.push(title.title);
     })
 }
 
-//Shuffle array
-const shuffleArray = (array) => {
-  for (let i = array.length - 1; i > 0; i--) {
-    let j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
-
-    // swap elements array[i] and array[j]
-    // we use "destructuring assignment" syntax to achieve that
-    // you'll find more details about that syntax in later chapters
-    // same can be written as:
-    // let t = array[i]; array[i] = array[j]; array[j] = t
-    [array[i], array[j]] = [array[j], array[i]];
-  }
-}
-
-
-
-//MAIN FUNCTION --- THE START OF EVERYTHING
+///MAIN FUNCTION
 const main = () => {
     addTitleToMoviesList();
     shuffleArray(moviesList)
-    movieNameHtml.innerHTML = moviesList[0];
-
 }
+
 main();
 
 
@@ -208,26 +164,37 @@ main();
 
 
 
-//BUTTONS EVENT
+//Event Handler
 passButton.addEventListener('click', () => {
     moviesList.push(moviesList.shift());
     movieNameHtml.innerText = moviesList[0];
-    console.log('dis is movieList', moviesList)
 })
-
 correctButton.addEventListener('click', () => {
     moviesList.push(moviesList.shift());
     movieNameHtml.innerText = moviesList[0];
-    console.log('dis is movieList', moviesList)
     scores++
-    h1Content.innerText = `${'Points: ' + scores}`
+    h1Content.innerText = `${'🪙 Points: ' + scores}`
 })
+document.body.onkeyup = function(e) {
+    if (e.key == " " ||
+        e.code == "Space" ||      
+        e.keyCode == 32      
+    ) {
+        moviesList.push(moviesList.shift());
+        movieNameHtml.innerText = moviesList[0];
+        scores++
+        h1Content.innerText = `${'🪙 Points: ' + scores}`
+    } else if (e.key == "Control" ||
+        e.code == "ControlLeft" ||      
+        e.keyCode == 17      
+    ) {
+    moviesList.push(moviesList.shift());
+    movieNameHtml.innerText = moviesList[0];
+    }
+}
+
 
 introModalBtn.addEventListener('click', closeIntroModal);
-
-// tempmodalbutton1.addEventListener('click', openEndModal);
 modalbtnCloseEl.addEventListener('click', closeEndModal);
-
-
 scoreModalButton.addEventListener('click', closeScoreboardModalAndRestartGame);
 
