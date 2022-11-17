@@ -14,7 +14,7 @@
 </p>
 </a>
 
-<a href="http://example.com">
+<a href="https://6376553ad48ae7000891f399--celadon-paletas-15633e.netlify.app/">
 <p align="center"> Check out GuessGuess Demo
     <br> 
 </p>
