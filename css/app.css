@@ -1,25 +1,24 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
 
 
-@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Pacifico&family=Poppins&display=swap');
-
+/* @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Pacifico&family=Poppins&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&family=Pacifico&family=Parisienne&family=Poppins&display=swap');
 * {
     font-family: 'Poppins', sans-serif;
 }
 
 body {
         overflow: hidden;
-        height: 100%;
+        height: 100vh;
+    /* background: linear-gradient(45deg, #49a09d, #5f2c82); */
+ background-color: #7a77b9;
+
 }
 
 h1 {
     color: black;
 }
 
-#game-title {
-    font-family: 'Pocifico', cursive;
-    font-size: 120px;
-}
 
 /* GAME CONTENT */
 .container {
@@ -35,7 +34,11 @@ h1 {
     height: 800px;
     overflow: hidden;
     background-size: cover;
-    background-color: aquamarine;
+    background-color: #C06C84;
+    /* box-shadow: 5px 5px rgba(0,0,0,0.4); */
+    -webkit-box-shadow: 0 0 10px rgba(25,25,25,0.3);
+    box-shadow: 0 0 10px rgba(25,25,25,0.3);
+    border-radius: 20px;
     margin-bottom: 20px;
     display: flex;
     justify-content: center;
@@ -45,43 +48,79 @@ h1 {
 .movie-name {
     font-size: 150px;
     text-align: center;
+    color: #F2C76E;
 }
 
 .btn-game {
     width:  1500px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     display: flex;
     justify-content: space-between;
 }
 
 .btn {
+    font-family: 'Poppins', sans-serif;
     width: 500px;
     height: 100px;
+    border-radius: 20px;
+    margin-bottom: -50px;
+    -webkit-box-shadow: 0 0 10px rgba(25,25,25,0.3);
+    box-shadow: 0 0 10px rgba(25,25,25,0.3);
+    border-style: none;
+    font-size: 60px;
+
+}
+
+.btn-pass {
+    background-color: #EA7186;
+    color: #EBE8E7;
+
+}
+
+.btn-correct {
+    background-color: #70beab;
+    color: #EBE8E7;
+
 }
 
 /* TOP BAR */
 .topbar {
-    background-color: brown;
+    /* background-color: #806491; */
+    /* box-shadow: 5px 5px rgba(0,0,0,0.4); */
+
     margin-bottom: 2%;
     height: 150px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+#game-title {
+    font-family: 'Parisienne', cursive;
+    font-size: 120px;
+    /* background-size: cover; */
+    color: #EBE8E7;
+    text-shadow: 2px 2px rgba(25,25,25,0.3);
+
+}
+
 #score {
     height: 150px;
     width: 300px;
-    background-color: blueviolet;
+    /* background-color: #BD9DEA; */
+    color: #EBE8E7;
+
     display: flex;
     align-items: center;
     justify-content: center;
 }
 #countdown {
-    background-color: blueviolet;
+    /* background-color: #BD9DEA; */
+    
     height: 150px;
     width: 300px;
-    font-size: 20px;
-
+    /* box-shadow: 5px 5px rgba(0,0,0,0.4);  */
+color: #EBE8E7;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -120,7 +120,7 @@ const savePlayertoLocalStorage = () => {
 
 const closeScoreboardModalAndRestartGame = () => {
     scoreModalContainer.style.display = 'none';
-    time = startingTime * 3;
+    time = startingTime * 1;
     openIntroModal();
 
 }
@@ -152,7 +152,7 @@ const openIntroModal = () => {
 const closeIntroModal = () => {
     introModalContainer.style.display = 'none';
     const updateCountdown = () => {
-        let seconds = time % 60;
+        let seconds = time * 60; // change multiply to modulus
         countdownEl.innerHTML = `${seconds}`
         time--;
         if(time === -1){
@@ -164,7 +164,7 @@ const closeIntroModal = () => {
 }
 
 //Timer
-const startingTime = 1;
+const startingTime = 4500;
 let time = startingTime * 1;
 const countdownEl = document.querySelector('#countdown');
 console.log(countdownEl)
