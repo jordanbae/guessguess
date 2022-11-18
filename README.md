@@ -39,6 +39,8 @@ Guess the movies name from the the given hint.
 - **Minimum players required** : 2
   > There will be 2 groups of players; the guesser and the people who give hints.
   >>Gameplay: The game will randomly show a movie title. The guesser will not be able to see the text, and have the guess what the movie is from the hints given. Users have 45 seconds to guess as much as they can, users are allowed to skip words. The hints are not allow to include the answer of the movie name. For instance, if the movie name is 'Terminator', the hint cant include the word 'Terminator'.
+- **Controls**
+  > Mouse Click || "Spacebar" = Correct and "Left-Ctrl" = Pass
 
 ## ⛓️ Wireframes <a name = "Wireframes"></a>
 ![wireframe](https://user-images.githubusercontent.com/73390197/202452021-a0a69758-2ddb-4f85-b5ae-7dfbb11c8066.png)
