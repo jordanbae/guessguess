@@ -27,6 +27,7 @@
 - [Project Description](#desc)
 - [Wireframes](#Wireframes)
 - [Approach](#approach)
+- [Workflow](#Workflow)
 - [Built With](#tech_stack)
 - [User Stories](#user-story)
 - [MVP Goals](#mvp-goals)
@@ -47,6 +48,9 @@ Guess the movies name from the the given hint.
 ## 🕵️ Approach <a name = "approach"></a>
 The main challenge of this project is to get list of words and display it randomly. My first approach was using API's but there were efficiency problems so I decided to get list of movies and kept it in JSON instead.
 Loops and Array are the main heroes that make this game logic working.
+
+## ♟ Workflow <a name='Workflow'></a>
+![Project Management Timeline Infographic Graph (Presentation (169))](https://user-images.githubusercontent.com/73390197/202633101-981165e2-8c1d-40e2-8ada-dcdc8260a938.png)
 
 ## ⛏️ Built With <a name = "tech_stack"></a>
 ![icons8-html-5-48](https://user-images.githubusercontent.com/73390197/202454228-c5b91ae9-9981-480b-9939-4826c7093e36.png)
