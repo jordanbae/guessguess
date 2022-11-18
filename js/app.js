@@ -88,7 +88,7 @@ const closeScoreboardModalAndRestartGame = () => {
     scoreModalContainer.style.display = 'none';
     time = startingTime * 1;
     scores = 0;
-    h1Content.innerText = `${'🪙 Points: ' + scores}`
+    h1Content.innerText = `${'💰 Points: ' + scores}`
     movieNameHtml.innerText = '';
     shuffleArray(moviesList)
     openIntroModal();
@@ -101,7 +101,7 @@ const openScoreboardModal = () => {
 const openEndModal = () => {
     modalContainer.style.display ='flex';
     if(scores <= 5) {
-        modalPoints.innerText = `${'🥹Just ' + scores + '? For real?'}`
+        modalPoints.innerText = `${'🤢Just ' + scores + '? For real?'}`
     } else {
         modalPoints.innerText = `${'👏You got ' + scores + ' Points'}`
     }
@@ -173,7 +173,7 @@ correctButton.addEventListener('click', () => {
     moviesList.push(moviesList.shift());
     movieNameHtml.innerText = moviesList[0];
     scores++
-    h1Content.innerText = `${'🪙 Points: ' + scores}`
+    h1Content.innerText = `${'💰 Points: ' + scores}`
 })
 document.body.onkeyup = function(e) {
     if (e.key == " " ||
@@ -183,7 +183,7 @@ document.body.onkeyup = function(e) {
         moviesList.push(moviesList.shift());
         movieNameHtml.innerText = moviesList[0];
         scores++
-        h1Content.innerText = `${'🪙 Points: ' + scores}`
+        h1Content.innerText = `${'💰 Points: ' + scores}`
     } else if (e.key == "Control" ||
         e.code == "ControlLeft" ||      
         e.keyCode == 17      
